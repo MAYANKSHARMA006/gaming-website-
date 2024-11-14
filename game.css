@@ -1,0 +1,71 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #89cff0, #88b4f5);
+}
+
+/* Main Container */
+.container {
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 400px;
+}
+
+/* Header and Text */
+.container h2 {
+    font-size: 2rem;
+    color: #0077b6;
+    margin-bottom: 10px;
+}
+
+.container p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+#result {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Choice Buttons */
+.choices {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.choices button {
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    background-color: #0077b6;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.choices button:hover {
+    background-color: #005f8e;
+    transform: scale(1.05);
+}

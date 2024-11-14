@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stone Paper Scissors Game</title>
+    <link rel="stylesheet" href="game.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Stone Paper Scissors</h2>
+      <p id="playerNames"></p>
+      <div class="choices">
+        <button onclick="playGame('rock')">🪨 Rock</button>
+        <button onclick="playGame('paper')">📄 Paper</button>
+        <button onclick="playGame('scissors')">✂️ Scissors</button>
+      </div>
+      <p id="result"></p>
+    </div>
+    <script>
+      let playerTurn = 1;
+      let player1Choice = "";
+      let player2Choice = "";
+
+      document.getElementById(
+        "playerNames"
+      ).innerText = `${sessionStorage.getItem(
+        "player1"
+      )} vs ${sessionStorage.getItem("player2")}`;
+
+      function playGame(choice) {
+        if (playerTurn === 1) {
+          player1Choice = choice;
+          playerTurn = 2;
+          document.getElementById(
+            "result"
+          ).innerText = `${sessionStorage.getItem(
+            "player2"
+          )}, make your choice`;
+        } else {
+          player2Choice = choice;
+          displayResult();
+          playerTurn = 1;
+        }
+      }
+
+      function displayResult() {
+        const player1 = sessionStorage.getItem("player1");
+        const player2 = sessionStorage.getItem("player2");
+        let resultText = "";
+
+        if (player1Choice === player2Choice) {
+          resultText = "It's a draw!";
+        } else if (
+          (player1Choice === "rock" && player2Choice === "scissors") ||
+          (player1Choice === "scissors" && player2Choice === "paper") ||
+          (player1Choice === "paper" && player2Choice === "rock")
+        ) {
+          resultText = `${player1} wins!`;
+        } else {
+          resultText = `${player2} wins!`;
+        }
+
+        document.getElementById("result").innerText = resultText;
+      }
+    </script>
+  </body>
+</html>
